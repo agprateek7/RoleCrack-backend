@@ -45,7 +45,7 @@ exports.createSession = async (req, res) => {
 exports.getMySessions = async (req, res) => {
     try {
         const sessions = await Session.find({ user: req.user.id })
-            .sort({ createdAt:- -1 })
+            .sort({ createdAt: -1 })
             .populate("questions");
         res.status(200).json(sessions); 
     } catch (error) {
