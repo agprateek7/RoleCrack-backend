@@ -1,5 +1,7 @@
 # RoleCrack Backend ⚙️
 
+[🔗 Live Demo](https://role-crack-frontend.vercel.app/)
+
 This is the **backend** server for the RoleCrack application. It provides RESTful APIs for user authentication, session management, AI-powered Q&A generation, and MongoDB-based data persistence.
 
 ## 🚀 Key Features
