@@ -39,7 +39,7 @@ exports.addQuestionsToSession = async (req, res) => {
 };
 
 // @desc Pin or unpin a question
-// @route POST /api/questions/:id/pin
+// @route PATCH /api/questions/:id/pin
 // @access Private
 
 exports.togglePinQuestion = async(req, res) => {
@@ -62,7 +62,7 @@ exports.togglePinQuestion = async(req, res) => {
 };
 
 // @desc Update a note for a question
-// @route POST /api/questions/:id/note
+// @route PATCH /api/questions/:id/note
 // @access Private
 
 exports.updateQuestionNote = async (req, res) => {

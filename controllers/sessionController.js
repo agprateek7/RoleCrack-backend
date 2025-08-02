@@ -2,7 +2,7 @@ const Session = require("../models/Session");
 const Question = require("../models/Question");
 
 // @desc Create a new session and linked questions
-// @route POST /api/sessions/create
+// @route POST /api/session/create
 // @access Private
 
 exports.createSession = async (req, res) => {
@@ -44,17 +44,17 @@ exports.createSession = async (req, res) => {
 // @access Private
 exports.getMySessions = async (req, res) => {
     try {
-        const sessions = await Session.find({ user: req.user.id })
+        const sessions = await Session.find({ user: req.user._id })
             .sort({ createdAt: -1 })
             .populate("questions");
-        res.status(200).json(sessions); 
+        res.status(200).json({success: true, sessions}); 
     } catch (error) {
         res.status(500).json({ success: false, message: "Server Error" });
     }
 };
 
 // @desc Get a session by ID with populated questions
-// @route GET /api/sessions/:id
+// @route GET /api/session/:id
 // @access Private
 exports.getSessionById = async (req, res) => {
     try {
@@ -101,7 +101,7 @@ exports.deleteSession = async(req, res) => {
         // Then, delete the session
         await session.deleteOne();
 
-        res.status(200).json({ message: "Session deleted successfully" });
+        res.status(200).json({ success: true, message: "Session deleted successfully" });
     } catch (error) {
         res.status(500).json({ success: false, message: "Server Error" });
     }
